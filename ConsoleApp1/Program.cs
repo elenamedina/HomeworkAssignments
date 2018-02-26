@@ -1,13 +1,12 @@
 ﻿using System;
-
 namespace Assessments
 
 {
     public class SimpleMenu
-    {
+    {    
         public static void Main(string[] args)
         {
-            int num;
+            int num;            
             do
             {
                 Console.WriteLine();
@@ -17,8 +16,9 @@ namespace Assessments
                 Console.WriteLine("3. Looping");
                 Console.WriteLine("4. Lists and Arrays");
                 Console.WriteLine("5. Dictionaries");
-                Console.WriteLine("6. Exit");
+                Console.WriteLine("6. Exit");          
                 Console.WriteLine();
+                Console.WriteLine("=========================");
                 Console.WriteLine("Please Select an Option:");
 
 
@@ -29,14 +29,50 @@ namespace Assessments
                     Console.WriteLine("Please enter a valid Menu Option 1-5, or enter 6 to exit");
                     Console.WriteLine();
                 }
-                else if (num == 1)
+                else if (num == 1)                
                 {
-                    Console.WriteLine("What's in a name? May I please have yours?");
+                    Console.WriteLine("As the great Shakespeare once said, 'What's in a name'? May I please have yours?"); 
                     string name = Console.ReadLine();
                     Console.WriteLine("A(n) " + name + " by any other name would smell just as sweet!");
+                    Console.WriteLine();
                     Console.WriteLine("Now, can you input a number so I can square it?");
                     int userNumber = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine(userNumber * userNumber);
+                }
+                else if (num == 2)
+                {
+                    Console.WriteLine("Let me show you how smart I am...");
+                    Console.WriteLine("Please enter a whole number: ");
+                    int a = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("And now give me another whole number:");
+                    int b = Convert.ToInt32(Console.ReadLine());
+                    if (a > b)
+                    {
+                        Console.WriteLine(a + " is larger than " + b);
+                    }
+                    else if (a == b)
+                    {
+                        Console.WriteLine(a + " is equal to " + b);
+                    }
+                    else if (a < b)
+                    {
+                        Console.WriteLine(a + " is smaller than " + b);
+                    }
+                    Console.WriteLine();
+                    Console.WriteLine("I have an important question to ask you. Is the earth FLAT? Type 'Y' for Yes or 'N' for No");
+                    string answer = Console.ReadLine();
+                    if
+                        (answer == "Y" || answer == "y")
+                    {
+                        Console.WriteLine("Get outta here, you flat-earther! I believe in SCIENCE!");
+                        Console.WriteLine();
+                    }
+                    else if (answer == "N" || answer == "n")
+                    {
+                        Console.WriteLine("Very Good! You can stay :) ");
+                        Console.WriteLine();
+                    }
+                    
                 }
                 else if (num == 6)
                 {
