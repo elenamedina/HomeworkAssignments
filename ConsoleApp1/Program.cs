@@ -29,9 +29,9 @@ namespace Assessments
                     Console.WriteLine("Please enter a valid Menu Option 1-5, or enter 6 to exit");
                     Console.WriteLine();
                 }
-                else if (num == 1)                
+                else if (num == 1)
                 {
-                    Console.WriteLine("As the great Shakespeare once said, 'What's in a name'? May I please have yours?"); 
+                    Console.WriteLine("As the great Shakespeare once said, 'What's in a name'? May I please have yours?");
                     string name = Console.ReadLine();
                     Console.WriteLine("A(n) " + name + " by any other name would smell just as sweet!");
                     Console.WriteLine();
@@ -66,13 +66,30 @@ namespace Assessments
                     {
                         Console.WriteLine("Get outta here, you flat-earther! I believe in SCIENCE!");
                         Console.WriteLine();
+                        break;
                     }
                     else if (answer == "N" || answer == "n")
                     {
                         Console.WriteLine("Very Good! You can stay :) ");
                         Console.WriteLine();
                     }
-                    
+                }
+                else if (num == 3)
+                {
+                    Console.WriteLine("Please may I have a positive integer?");
+                    int loop = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("You entered " + loop + "\n");                    
+                    for (int i = 1; i <= loop; i++)
+                    {                        
+                        Console.WriteLine(i);
+                    }
+                    Console.WriteLine("Please type your favorite word");                    
+                    string word = Console.ReadLine();
+                    Console.WriteLine("You typed " + word + "\n");                    
+                    for (int i = 1; i <= loop; i++)
+                    {                        
+                        Console.WriteLine(word);                       
+                    } 
                 }
                 else if (num == 6)
                 {
