@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace Assessments
 
 {
@@ -78,19 +80,30 @@ namespace Assessments
                 {
                     Console.WriteLine("Please may I have a positive integer?");
                     int loop = Convert.ToInt32(Console.ReadLine());
-                    Console.WriteLine("You entered " + loop + "\n");                    
+                    Console.WriteLine("You entered " + loop + "\n");
                     for (int i = 1; i <= loop; i++)
-                    {                        
+                    {
                         Console.WriteLine(i);
                     }
-                    Console.WriteLine("Please type your favorite word");                    
+                    Console.WriteLine("Please type your favorite word");
                     string word = Console.ReadLine();
-                    Console.WriteLine("You typed " + word + "\n");                    
+                    Console.WriteLine("You typed " + word + "\n");
                     for (int i = 1; i <= loop; i++)
-                    {                        
-                        Console.WriteLine(word);                       
-                    } 
+                    {
+                        Console.WriteLine(word);
+                    }
                 }
+                else if (num == 4)
+                {
+                    List<string> names = new List<string>();
+                    Console.WriteLine("Who are your 5 favorite people?");
+                    string friend = Console.ReadLine();
+                    //string[] friends = names.Split(' '); // split isnt working yet- how do i do this? take an input of multiple words and split into a list of strings
+                    foreach (string people in friend)
+                    {
+                        Console.WriteLine(friend);
+                    }
+                }  //"Like the good ol' days of Myspace, Here are the names of your 'Top 5' Friends"//                 
                 else if (num == 6)
                 {
                     Console.WriteLine("Now Exiting Program");
