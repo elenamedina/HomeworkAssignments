@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Assessments
 
@@ -95,15 +96,30 @@ namespace Assessments
                 }
                 else if (num == 4)
                 {
-                    List<string> names = new List<string>();
-                    Console.WriteLine("Who are your 5 favorite people?");
-                    string friend = Console.ReadLine();
-                    //string[] friends = names.Split(' '); // split isnt working yet- how do i do this? take an input of multiple words and split into a list of strings
-                    foreach (string people in friend)
-                    {
-                        Console.WriteLine(friend);
+                    Console.WriteLine("What are the first names of your 5 favorite people?");
+                    string friends = Console.ReadLine();
+                    string[] entries = friends.Split(' ');                    
+                    List<string> names = entries.ToList();
+                    Console.WriteLine("Like the good ol' days of Myspace, Here are the names of your 'Top 5' Friends:");
+                    foreach (string value in names)
+                    {                         
+                        Console.WriteLine(value);
                     }
-                }  //"Like the good ol' days of Myspace, Here are the names of your 'Top 5' Friends"//                 
+                    Console.WriteLine("My name is R90kGJJX. Did we just become best friends?! [Type 'y' for yes or 'n' for no]");
+                    string friendly = Console.ReadLine();
+                    if (friendly == "yup" || friendly == "y" || friendly == "Y")
+                    {
+                        names.Add("R90kGJJX");
+                        foreach (string value in names)
+                        {
+                            Console.WriteLine(value);
+                        }                        
+                    }
+                    else
+                    {
+                        Console.WriteLine("You're Loss, mang!");
+                    }                    
+                }                  
                 else if (num == 6)
                 {
                     Console.WriteLine("Now Exiting Program");
