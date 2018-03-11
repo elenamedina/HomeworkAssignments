@@ -96,33 +96,49 @@ namespace Assessments
                 }
                 else if (num == 4)
                 {
-                    Console.WriteLine("What are the first names of your 5 favorite people?");
+                    Console.WriteLine("What are the first names of your 5 favorite people? [ex: Jake Alex Mary...]");
                     string friends = Console.ReadLine();
-                    string[] entries = friends.Split(' ');                    
+                    string[] entries = friends.Split(' ');
                     List<string> names = entries.ToList();
-                    Console.WriteLine("Like the good ol' days of Myspace, Here are the names of your 'Top 5' Friends:");
+                    Console.WriteLine("Like the good ol' days of Myspace, Here are the names of your 'Top 5' Friends:" + "\n");
                     foreach (string value in names)
-                    {                         
-                        Console.WriteLine(value);
+                    {
+                        Console.WriteLine(value + "\n");
                     }
                     Console.WriteLine("My name is R90kGJJX. Did we just become best friends?! [Type 'y' for yes or 'n' for no]");
                     string friendly = Console.ReadLine();
                     if (friendly == "yup" || friendly == "y" || friendly == "Y")
                     {
+                        Console.WriteLine("This is Awesome! Here's your new list!" + "\n");
                         names.Add("R90kGJJX");
                         foreach (string value in names)
                         {
                             Console.WriteLine(value);
-                        }                        
+                        }
                     }
                     else
                     {
                         Console.WriteLine("You're Loss, mang!");
-                    }                    
-                }                  
+                    }
+                }
+                else if (num == 5)
+                {
+                    Dictionary<string, string> slang =
+                           new Dictionary<string, string>();
+                    Console.WriteLine("I am old- what is the new 'hip' lingo these days?" + "\n Please enter a current slang word and its definition, separated by a comma: [type 'quit' to exit and print your dictionary" + "\n");
+                    string entries = Console.ReadLine();
+                    string[] inputs = entries.Split(',');
+                    string key = inputs[0];
+                    string value = inputs[1];
+                    slang.TryAdd(key, value);
+                    foreach (var pair in slang)
+                    {
+                        Console.WriteLine(pair);
+                    }
+                }                                 
                 else if (num == 6)
                 {
-                    Console.WriteLine("Now Exiting Program");
+                    Console.WriteLine("Now Exiting Program....");
                 }
             } while (num != 6);
         }
