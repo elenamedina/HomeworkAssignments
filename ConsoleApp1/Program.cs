@@ -11,7 +11,7 @@ namespace Assessments
         {
             int num;            
             do
-            {
+            {       
                 Console.WriteLine();
                 Console.WriteLine("Welcome to the Main Menu!");
                 Console.WriteLine("1. Inputs and Printing");
@@ -34,6 +34,7 @@ namespace Assessments
                 }
                 else if (num == 1)
                 {
+                    Console.Clear();
                     Console.WriteLine("As the great Shakespeare once said, 'What's in a name'? May I please have yours?");
                     string name = Console.ReadLine();
                     Console.WriteLine("A(n) " + name + " by any other name would smell just as sweet!");
@@ -44,11 +45,14 @@ namespace Assessments
                 }
                 else if (num == 2)
                 {
+                    Console.Clear();
                     Console.WriteLine("Let me show you how smart I am...");
                     Console.WriteLine("Please enter a whole number: ");
                     int a = Convert.ToInt32(Console.ReadLine());
+
                     Console.WriteLine("And now give me another whole number:");
                     int b = Convert.ToInt32(Console.ReadLine());
+
                     if (a > b)
                     {
                         Console.WriteLine(a + " is larger than " + b);
@@ -61,11 +65,11 @@ namespace Assessments
                     {
                         Console.WriteLine(a + " is smaller than " + b);
                     }
+
                     Console.WriteLine();
                     Console.WriteLine("I have an important question to ask you. Is the earth FLAT? Type 'Y' for Yes or 'N' for No");
                     string answer = Console.ReadLine();
-                    if
-                        (answer == "Y" || answer == "y")
+                    if (answer == "Y" || answer == "y")
                     {
                         Console.WriteLine("Get outta here, you flat-earther! I believe in SCIENCE!");
                         Console.WriteLine();
@@ -79,6 +83,7 @@ namespace Assessments
                 }
                 else if (num == 3)
                 {
+                    Console.Clear();
                     Console.WriteLine("Please may I have a positive integer?");
                     int loop = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("You entered " + loop + "\n");
@@ -96,6 +101,7 @@ namespace Assessments
                 }
                 else if (num == 4)
                 {
+                    Console.Clear();
                     Console.WriteLine("What are the first names of your 5 favorite people? [ex: Jake Alex Mary...]");
                     string friends = Console.ReadLine();
                     string[] entries = friends.Split(' ');
@@ -103,7 +109,7 @@ namespace Assessments
                     Console.WriteLine("Like the good ol' days of Myspace, Here are the names of your 'Top 5' Friends:" + "\n");
                     foreach (string value in names)
                     {
-                        Console.WriteLine(value + "\n");
+                        Console.WriteLine(value);
                     }
                     Console.WriteLine("My name is R90kGJJX. Did we just become best friends?! [Type 'y' for yes or 'n' for no]");
                     string friendly = Console.ReadLine();
@@ -123,21 +129,33 @@ namespace Assessments
                 }
                 else if (num == 5)
                 {
-                    Dictionary<string, string> slang =
-                           new Dictionary<string, string>();
-                    Console.WriteLine("I am old- what is the new 'hip' lingo these days?" + "\n Please enter a current slang word and its definition, separated by a comma: [type 'quit' to exit and print your dictionary" + "\n");
-                    string entries = Console.ReadLine();
-                    string[] inputs = entries.Split(',');
-                    string key = inputs[0];
-                    string value = inputs[1];
-                    slang.TryAdd(key, value);
+                    Console.Clear();
+                    Dictionary<string, string> slang = new Dictionary<string, string>();
+                    Console.WriteLine("I am old-- What is the new 'hip' lingo these days? Let's create a Dictionary! [type 'quit' to exit and print your dictionary");
+                    string stop; 
+                    do
+                    {
+                        Console.WriteLine("Type your word and definition, separated by a comma");
+                        string entries = Console.ReadLine();
+                        stop = entries;
+                        if (entries == "quit")
+                        {
+                            break;
+                        }
+                        string[] inputs = entries.Split(',');
+                        string key = inputs[0];
+                        string value = inputs[1];
+                        slang.TryAdd(key, value);                        
+                    } while (stop != "quit");
+                    Console.WriteLine("\n::Your 'Slang' Dictionary::\n");
                     foreach (var pair in slang)
                     {
-                        Console.WriteLine(pair);
+                        Console.WriteLine(pair.Key + ": " + pair.Value + "\n");
                     }
                 }                                 
                 else if (num == 6)
                 {
+                    Console.Clear();
                     Console.WriteLine("Now Exiting Program....");
                 }
             } while (num != 6);
