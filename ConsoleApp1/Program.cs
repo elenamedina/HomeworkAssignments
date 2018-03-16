@@ -3,43 +3,66 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace Assessments
-
 {
     public class SimpleMenu
     {    
         public static void Main(string[] args)
         {
-            int num;            
-            do
-            {       
-                Console.WriteLine();
-                Console.WriteLine("Welcome to the Main Menu!");
-                Console.WriteLine("1. Inputs and Printing");
-                Console.WriteLine("2. Conditionals");
-                Console.WriteLine("3. Looping");
-                Console.WriteLine("4. Lists and Arrays");
-                Console.WriteLine("5. Dictionaries");
-                Console.WriteLine("6. Exit");          
-                Console.WriteLine();
-                Console.WriteLine("=========================");
-                Console.WriteLine("Please Select an Option:");
-
-
-                num = Convert.ToInt32(Console.ReadLine());
-                if (num <= 0 || num >= 7)
+            Console.WriteLine("Welcome to the Main Menu!" + "\n");
+            Console.WriteLine("Please enter a valid Menu Option 1-5, or enter 6 to exit" + "\n");              
+            {
+                int num = int.Parse(System.Console.ReadLine());
+                switch (num)
                 {
-                    Console.WriteLine();
-                    Console.WriteLine("Please enter a valid Menu Option 1-5, or enter 6 to exit");
-                    Console.WriteLine();
+                    case 1:
+                        {
+                            Console.WriteLine("1. Inputs and Printing" + "\n");
+                            InputsAndPrinting();
+                            break;
+                        }
+                    case 2:
+                        {
+                            Console.WriteLine("2. Conditionals" + "\n");
+                            Conditionals();
+                            break;
+                        }
+                    case 3:
+                        {
+                            Console.WriteLine("3. Looping" + "\n");
+                            break;
+                        }
+                    case 4:
+                        {
+                            Console.WriteLine("4. Lists and Arrays" + "\n");
+                            break;
+                        }
+                    case 5:
+                        {
+                            Console.WriteLine("5. Dictionaries" + "\n");
+                            break;
+                        }
+                    case 6:
+                        {
+                            Console.WriteLine("6. Exit" + "\n");
+                            break;
+                        }                                                         
                 }
-                else if (num == 1)
+
+                //num = Convert.ToInt32(Console.ReadLine());
+                //if (num <= 0 || num >= 7)
+                //{
+                //    Console.WriteLine();
+                    
+                //    Console.WriteLine();
+                //}
+               
+                if (num == 1)
                 {
                     Console.Clear();
-                    Console.WriteLine("As the great Shakespeare once said, 'What's in a name'? May I please have yours?");
+                    Console.WriteLine("As the great Shakespeare once said, 'What's in a name'? May I please have yours?" + "\n");
                     string name = Console.ReadLine();
-                    Console.WriteLine("A(n) " + name + " by any other name would smell just as sweet!");
-                    Console.WriteLine();
-                    Console.WriteLine("Now, can you input a number so I can square it?");
+                    Console.WriteLine("A(n) " + name + " by any other name would smell just as sweet!" + "\n");
+                    Console.WriteLine("Now, can you input a number so I can square it?" + "\n");
                     int userNumber = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine(userNumber * userNumber);
                 }
@@ -73,8 +96,8 @@ namespace Assessments
                     {
                         Console.WriteLine("Get outta here, you flat-earther! I believe in SCIENCE!");
                         Console.WriteLine();
-                        break;
                     }
+
                     else if (answer == "N" || answer == "n")
                     {
                         Console.WriteLine("Very Good! You can stay :) ");
@@ -132,7 +155,7 @@ namespace Assessments
                     Console.Clear();
                     Dictionary<string, string> slang = new Dictionary<string, string>();
                     Console.WriteLine("I am old-- What is the new 'hip' lingo these days? Let's create a Dictionary! [type 'quit' to exit and print your dictionary");
-                    string stop; 
+                    string stop;
                     do
                     {
                         Console.WriteLine("Type your word and definition, separated by a comma");
@@ -145,20 +168,70 @@ namespace Assessments
                         string[] inputs = entries.Split(',');
                         string key = inputs[0];
                         string value = inputs[1];
-                        slang.TryAdd(key, value);                        
+                        slang.TryAdd(key, value);
                     } while (stop != "quit");
                     Console.WriteLine("\n::Your 'Slang' Dictionary::\n");
                     foreach (var pair in slang)
                     {
                         Console.WriteLine(pair.Key + ": " + pair.Value + "\n");
                     }
-                }                                 
+                }
                 else if (num == 6)
                 {
                     Console.Clear();
                     Console.WriteLine("Now Exiting Program....");
                 }
-            } while (num != 6);
+            } 
         }
-    }
+
+        public static void InputsAndPrinting()
+        {
+            Console.Clear();
+            Console.WriteLine("As the great Shakespeare once said, 'What's in a name'? May I please have yours?" + "\n");
+            string name = Console.ReadLine();
+            Console.WriteLine("A(n) " + name + " by any other name would smell just as sweet!" + "\n");
+            Console.WriteLine("Now, can you input a number so I can square it?" + "\n");
+            int userNumber = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine(userNumber * userNumber);
+        }
+
+        public static void Conditionals()
+        {
+            Console.Clear();
+            Console.WriteLine("Let me show you how smart I am...");
+            Console.WriteLine("Please enter a whole number: ");
+            int a = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("And now give me another whole number:");
+            int b = Convert.ToInt32(Console.ReadLine());
+
+            if (a > b)
+            {
+                Console.WriteLine(a + " is larger than " + b);
+            }
+            else if (a == b)
+            {
+                Console.WriteLine(a + " is equal to " + b);
+            }
+            else if (a < b)
+            {
+                Console.WriteLine(a + " is smaller than " + b);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("I have an important question to ask you. Is the earth FLAT? Type 'Y' for Yes or 'N' for No");
+            string answer = Console.ReadLine();
+            if (answer == "Y" || answer == "y")
+            {
+                Console.WriteLine("Get outta here, you flat-earther! I believe in SCIENCE!");
+                Console.WriteLine();
+            }
+
+            else if (answer == "N" || answer == "n")
+            {
+                Console.WriteLine("Very Good! You can stay :) ");
+                Console.WriteLine();
+            }
+        }
+    }    
 }
