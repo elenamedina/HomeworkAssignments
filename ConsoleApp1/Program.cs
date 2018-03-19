@@ -11,48 +11,48 @@ namespace Assessments
             int num;
             do               
             {
-                Menu();
+                Menu();                
                 num = int.Parse(Console.ReadLine());                
-                switch (num)
+                switch (num)                
                 {
                     case 1:
                         {
-                            Console.WriteLine("1. Inputs and Printing" + "\n");
-                            InputsAndPrinting();
-                            break;
-                        }
+                        Console.WriteLine("1. Inputs and Printing" + "\n");
+                        InputsAndPrinting();
+                        break;
+                    }
                     case 2:
                         {
-                            Console.WriteLine("2. Conditionals\n");
-                            Conditionals();
-                            break;
+                        Console.WriteLine("2. Conditionals\n");
+                        Conditionals();
+                        break;
                         }
                     case 3:
                         {
-                            Console.WriteLine("3. Looping\n");
-                            Looping();
-                            break;
+                        Console.WriteLine("3. Looping\n");
+                        Looping();
+                        break;
                         }
                     case 4:
                         {
-                            Console.WriteLine("4. Lists and Arrays\n");
-                            ListsAndArrays();
-                            break;
+                        Console.WriteLine("4. Lists and Arrays\n");
+                        ListsAndArrays();
+                        break;
                         }
                     case 5:
                         {
-                            Console.WriteLine("5. Dictionaries\n");
-                            Dictionaries();
-                            break;
+                        Console.WriteLine("5. Dictionaries\n");
+                        Dictionaries();
+                        break;
                         }
                     case 6:
                         {
-                            Console.WriteLine("6. Exit\n");                            
-                            Environment.Exit(0);
-                            break;
+                        Console.WriteLine("6. Exit\n");
+                        Environment.Exit(0);
+                        break;
 
                         }
-                } 
+                }                
             } while (num != 6);
         }
 
@@ -72,23 +72,41 @@ namespace Assessments
         public static void InputsAndPrinting()
         {
             Console.Clear();
-            Console.WriteLine("As the great Shakespeare once said, 'What's in a name'? May I please have yours?" + "\n");
+            Console.WriteLine("As the great Shakespeare once said, 'What's in a name...'? May I please have yours?\n");
             string name = Console.ReadLine();
             Console.WriteLine("A(n) " + name + " by any other name would smell just as sweet!" + "\n");
-            Console.WriteLine("Now, can you input a number so I can square it?" + "\n");
-            int userNumber = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine(userNumber * userNumber);
+            Console.WriteLine("Now, can you input a number so I can square it?\n");
+            string userNumber = Console.ReadLine();            
+            if (!Int32.TryParse(userNumber, out int value))
+            {
+                Console.WriteLine("Not a valid number. Please try again!");                
+            }
+            else
+            {
+                Console.WriteLine(value * value);
+            }
+            
         }
 
         public static void Conditionals()
         {
             Console.Clear();
             Console.WriteLine("Let me show you how smart I am...");
-            Console.WriteLine("Please enter a whole number: ");
-            int a = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Please enter a whole number:");                      
+            bool isWholeNumber = Int32.TryParse(Console.ReadLine(), out int a);
+            while (!isWholeNumber)
+            {
+                Console.WriteLine("Not a valid number. Please try again!\n" + "Enter a whole number:");                
+                isWholeNumber = Int32.TryParse(Console.ReadLine(), out a);
+            }            
 
-            Console.WriteLine("And now give me another whole number:");
-            int b = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("And now give me another whole number:");                    
+            bool isWholeNumber2 = Int32.TryParse(Console.ReadLine(), out int b);
+            while (!isWholeNumber2)
+            {
+                Console.WriteLine("Not a valid number. Please try again!\n" + "Enter a whole number:");               
+                isWholeNumber2 = Int32.TryParse(Console.ReadLine(), out b);
+            }
 
             if (a > b)
             {
@@ -104,8 +122,14 @@ namespace Assessments
             }
 
             Console.WriteLine();
-            Console.WriteLine("I have an important question to ask you. Is the earth FLAT? Type 'Y' for Yes or 'N' for No");
+            Console.WriteLine("Now I have an important question to ask you. Is the earth FLAT? Type 'Y' for Yes or 'N' for No");
             string answer = Console.ReadLine();
+            while (answer != "Y" && answer != "y" && answer != "N" && answer != "n")
+            {
+                Console.WriteLine("Is the earth FLAT ? Type 'Y' for Yes or 'N' for No");
+                answer = Console.ReadLine();
+            }
+
             if (answer == "Y" || answer == "y")
             {
                 Console.WriteLine("Get outta here, you flat-earther! I believe in SCIENCE!");
