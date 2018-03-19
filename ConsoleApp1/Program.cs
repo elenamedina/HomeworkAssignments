@@ -147,7 +147,8 @@ namespace Assessments
         {
             Console.Clear();
             Console.WriteLine("Please may I have a positive integer?");
-            int loop = Convert.ToInt32(Console.ReadLine());
+            int loop;
+            bool number = Int32.TryParse(Console.ReadLine(), out loop);            
             Console.WriteLine("You entered " + loop + "\n");
             for (int i = 1; i <= loop; i++)
             {
@@ -156,10 +157,12 @@ namespace Assessments
             Console.WriteLine("Please type your favorite word");
             string word = Console.ReadLine();
             Console.WriteLine("You typed " + word + "\n");
-            for (int i = 1; i <= loop; i++)
-            {
-                Console.WriteLine(word);
-            }
+            // this is incomplete 
+            //int numberToPrint = loop;
+            //while  (numberToPrint == loop)
+            //{
+            //    Console.WriteLine(word);
+            //}
 
         }
 
