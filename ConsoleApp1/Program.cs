@@ -2,57 +2,63 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Assessments
+namespace Assessments  
 {
     public class SimpleMenu
     {
         public static void Main(string[] args)        
-        {            
-            int num;
+        {
+            int num; 
+            while(true)
             do               
             {
-                Menu();                
-                num = int.Parse(Console.ReadLine());                
-                switch (num)                
-                {
-                    case 1:
+                Menu();
+                    if (Int32.TryParse(Console.ReadLine(), out num))
+                        switch (num)
                         {
-                        Console.WriteLine("1. Inputs and Printing" + "\n");
-                        InputsAndPrinting();
-                        break;
-                    }
-                    case 2:
-                        {
-                        Console.WriteLine("2. Conditionals\n");
-                        Conditionals();
-                        break;
-                        }
-                    case 3:
-                        {
-                        Console.WriteLine("3. Looping\n");
-                        Looping();
-                        break;
-                        }
-                    case 4:
-                        {
-                        Console.WriteLine("4. Lists and Arrays\n");
-                        ListsAndArrays();
-                        break;
-                        }
-                    case 5:
-                        {
-                        Console.WriteLine("5. Dictionaries\n");
-                        Dictionaries();
-                        break;
-                        }
-                    case 6:
-                        {
-                        Console.WriteLine("6. Exit\n");
-                        Environment.Exit(0);
-                        break;
+                            case 1:
+                                {
+                                    Console.WriteLine("1. Inputs and Printing" + "\n");
+                                    InputsAndPrinting();
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    Console.WriteLine("2. Conditionals\n");
+                                    Conditionals();
+                                    break;
+                                }
+                            case 3:
+                                {
+                                    Console.WriteLine("3. Looping\n");
+                                    Looping();
+                                    break;
+                                }
+                            case 4:
+                                {
+                                    Console.WriteLine("4. Lists and Arrays\n");
+                                    ListsAndArrays();
+                                    break;
+                                }
+                            case 5:
+                                {
+                                    Console.WriteLine("5. Dictionaries\n");
+                                    Dictionaries();
+                                    break;
+                                }
+                            case 6:
+                                {
+                                    Console.WriteLine("6. Exit\n");
+                                    Environment.Exit(0);
+                                    break;
 
+                                }
                         }
-                }                
+                    else
+                    {
+                        Console.Clear();
+                        Console.WriteLine("Oops! Try again!");
+                    }    
             } while (num != 6);
         }
 
@@ -148,28 +154,34 @@ namespace Assessments
             Console.Clear();
             Console.WriteLine("Please may I have a positive integer?");
             int loop;
-            bool number = Int32.TryParse(Console.ReadLine(), out loop);            
+            bool number = Int32.TryParse(Console.ReadLine(), out loop);
+            while (!number)
+            {
+                Console.WriteLine("Not a valid number. Please try again!\n" + "Enter a whole number:");
+                number = Int32.TryParse(Console.ReadLine(), out loop);
+            }
             Console.WriteLine("You entered " + loop + "\n");
-            for (int i = 1; i <= loop; i++)
+            int i = 1;
+            do
             {
                 Console.WriteLine(i);
-            }
+                i = i + 1;
+            } while (i < (loop+1));
+
             Console.WriteLine("Please type your favorite word");
             string word = Console.ReadLine();
-            Console.WriteLine("You typed " + word + "\n");
-            // this is incomplete 
-            //int numberToPrint = loop;
-            //while  (numberToPrint == loop)
-            //{
-            //    Console.WriteLine(word);
-            //}
+            Console.WriteLine("You typed " + word + "\n"); 
+            for(i = 1; i <= loop; i++)
+            {
+                Console.WriteLine(word);
+            }
 
         }
 
         public static void ListsAndArrays()
         {
             Console.Clear();
-            Console.WriteLine("What are the first names of your 5 favorite people? [ex: Jake Alex Mary...]\n");
+            Console.WriteLine("What are the first names of your 5 favorite people (separated by spaces)? [ex: John Alex Mary...]\n");
             string friends = Console.ReadLine();
             string[] entries = friends.Split(' ');
             List<string> names = entries.ToList();
@@ -182,7 +194,7 @@ namespace Assessments
             string friendly = Console.ReadLine();
             if (friendly == "yup" || friendly == "y" || friendly == "Y")
             {
-                Console.WriteLine("This is Awesome! Here's your new list!\n");
+                Console.WriteLine("This is Awesome! Here's your new Friends list!\n");
                 names.Add("R90kGJJX\n");
                 foreach (string value in names)
                 {
@@ -191,7 +203,7 @@ namespace Assessments
             }
             else
             {
-                Console.WriteLine("You're Loss, mang!\n");
+                Console.WriteLine("You're Loss, mang!");
             }
         }
 
